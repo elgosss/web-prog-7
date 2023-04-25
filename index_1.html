@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 1</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px solid black;
+                padding: 3px;
+                text-align: center;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                    var newTable = document.createElement('table');
+                    for (var y = 0; y <= 6; y++) {
+                        var  newRow = newTable.insertRow(y);
+                        for (var x = 0; x <= 5; x++) {
+                            var newCell = newRow.insertCell(x);
+                            newCell.width = 200;
+                        }
+                    }
+                    document.body.appendChild(newTable);
+                }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
