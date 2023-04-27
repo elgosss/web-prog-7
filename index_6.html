@@ -21,14 +21,61 @@
             </ul>
             <script>
                 "use strict";
-                document.addEventListener('click', click);
-                function click(e) {
-                    if (e.target.tagName != 'LI') return;
-                    if (e.target.classList.contains('orange') == true) {
-                        e.target.classList.remove('orange');
+                var ul = document.getElementsByTagName('ul')[0];
+                var lastClickedLi = null;
+
+                ul.onclick = function(e) {
+                    var target = e.target;
+                    if (target.tagName != "LI") return;
+                    if (e.ctrlKey) {
+                        toggleSelect(target);
+                    } else if (e.shiftKey) {
+                        selectFromLast(target);
                     } else {
-                        e.target.classList.add('orange');
+                        selectSingle(target);
                     }
+                    lastClickedLi = target;
+                }
+
+                ul.onselectstart = ul.onmousedown = function() {
+                    return false;
+                }
+
+                function toggleSelect(li) {
+                    li.className = (li.className == '') ? 'orange' : '';
+                }
+
+                function selectFromLast(target) {
+                    var startElem = lastClickedLi || ul.children[0];
+                    var isLastClickedBefore = compareDocumentPosition(startElem, target) & 4;
+
+                    if (isLastClickedBefore) {
+                        for(var elem = startElem; elem != target; elem = elem.nextSibling) {
+                        elem.className = 'orange';
+                        }
+                    } else {
+                        for(var elem = startElem; elem != target; elem = elem.previousSibling) {
+                        elem.className = 'orange';
+                        }
+                    }
+                    elem.className = 'orange';
+                }
+
+
+                function deselectAll() {
+                    for(var i=0; i<ul.children.length; i++) {
+                        ul.children[i].className = '';
+                    }
+                }
+
+                function selectSingle(li) {
+                    deselectAll();
+                    li.className = 'orange';
+                }
+
+                function compareDocumentPosition(a, b) {
+                    return a.compareDocumentPosition ? a.compareDocumentPosition(b) : (a != b && a.contains(b) && 16) + (a != b && b.contains(a) && 8) +
+                    (a.sourceIndex >= 0 && b.sourceIndex >= 0 ? (a.sourceIndex < b.sourceIndex && 4) + (a.sourceIndex > b.sourceIndex && 2) : 1);
                 }
             </script>
         </div>
