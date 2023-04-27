@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 2</title>
+        <style>
+            .l {
+                color: black;
+                text-decoration: none;
+                border-bottom: 1px dashed black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_2">
+            <ul>
+                <li><a href="">index-html</a></li>
+                <li><a href="https://google.com" target="_blank">https://google.com</a></li>
+                <li><a href="https://kpfu.ru" target="_blank">https://kpfu.ru</a></li>
+                <li><a href="">file:///G:/users/RPI/test.html</a></li>
+                <li><a href="">/local/path</a></li>
+                <li><a href="http://www.php.su/" target="_blank">http://www.php.su/</a></li>
+                <li><a href="">/images/cat.jpg</a></li>
+                <li><a href="https://www.tut.by/" target="_blank">https://www.tut.by/</a></li>
+            </ul>
+            <script>
+                "use strict";
+                for (let link of Array.from(document.links)) {
+                    if (link.href.match(/^https?:/i)) {
+                        link.classList.add('l')
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
