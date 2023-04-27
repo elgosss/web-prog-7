@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 4</title>
+    </head>
+    <body>
+        <div id="main_4">
+            <script>
+                "use strict";
+                document.write('<table style="border: 3px solid grey; border-collapse: separate; border-spacing: 0px">');
+                document.write('<caption style="caption-style: top; background-color: white;">Выберите цвет:</caprion>');
+                for (let i = 0; i <= 255; i += 50) {
+                    document.write('<tr>');
+                    for (let j = 0; j <= 255; j += 100) {
+                        for (let k = 0; k <= 255; k += 100) {
+                            document.write(`<td style="background-color:RGB(${i}, ${j}, ${k}); width:50px; height:50px; border: 1px solid black;"></td>`);
+                        }
+                    }
+                    document.write('</tr>');
+                }
+                document.write('</table>');
+                document.addEventListener('click', click);
+                function click(e) {
+                    if (e.target.style.backgroundColor != 'white') {
+                        document.body.style.background = e.target.style.backgroundColor;
+                    }
+                    
+                }
+            </script>
+        </div>
+    </body>
+</html>
