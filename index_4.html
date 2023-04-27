@@ -22,10 +22,8 @@
                 document.write('</table>');
                 document.addEventListener('click', click);
                 function click(e) {
-                    if (e.target.style.backgroundColor != 'white') {
-                        document.body.style.background = e.target.style.backgroundColor;
-                    }
-                    
+                    if (e.target.tagName != 'TD') return;
+                    document.body.style.background = e.target.style.backgroundColor;
                 }
             </script>
         </div>
