@@ -29,6 +29,9 @@
                     if (link.href.match(/^https?:/)) {
                         link.classList.add('l')
                     }
+                    if (link.href.match(/^https?:el/)) {
+                        link.classList.remove('l')
+                    }
                 }
             </script>
         </div>
