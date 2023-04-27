@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 6</title>
+        <style>
+            .orange {
+                color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_6">
+            <ul>
+                <li>Джейн Остин "Гордость и предупреждение"</li>
+                <li>Чак Паланик "Бойцовский клуб"</li>
+                <lI>Федор Достоевский "Преступление и наказание"</lI>
+                <li>Михаил Булгаков "Мастер и Маргарита"</li>
+                <li>Рэй Брэдбери "451 градус по Фаренгейту"</li>
+                <li>Рэй Брэдбери "Вино из одуванчиков"</li>
+            </ul>
+            <script>
+                "use strict";
+                document.addEventListener('click', click);
+                function click(e) {
+                    if (e.target.tagName != 'LI') return;
+                    if (e.target.classList.contains('orange') == true) {
+                        e.target.classList.remove('orange');
+                    } else {
+                        e.target.classList.add('orange');
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
