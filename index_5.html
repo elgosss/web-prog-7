@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 5</title>
+        <style>
+            #main_5 {
+                position: relative;
+            }
+            .sq{
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                opacity: 0.9;
+            }
+            #id_1 {
+                left: 0px;
+                top: 0px;
+                background-color: #e81546;
+                z-index: 0;
+            }
+            #id_2 {
+                left: 40px;
+                top: 40px;
+                background-color: #f3f593;
+                z-index: 1;
+            }
+            #id_3 {
+                left: 80px;
+                top: 80px;
+                background-color: #939df5;
+                z-index: 2;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_5">
+            <script>
+                "use strict";
+                let topZindex = 3;
+                let lastId = '';
+                function changeZindex(e) {
+                    let id = e.id;
+                    document.getElementById(id).style.zIndex = topZindex;
+                    if (lastId == '') {
+                        lastId = id;
+                    }
+                    if (lastId == id) {
+                        document.getElementById(id).style.zIndex = topZindex;
+                    } else {
+                        document.getElementById(lastId).style.zIndex = '';
+                    }
+                    lastId = id;
+                }
+            </script>
+            <div id="id_1" class="sq" onclick="changeZindex(this)"></div>
+            <div id="id_2" class="sq" onclick="changeZindex(this)"></div>
+            <div id="id_3" class="sq" onclick="changeZindex(this)"></div>
+        </div>
+    </body>
+</html>
