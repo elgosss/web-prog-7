@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Задание 3</title>
+        <style>
+            ul {
+                list-style-type: none;
+            }
+            .open::before {
+                content: '▾ ';
+            }
+            .close::before {
+                content: '▸ ';
+            }
+            .all:hover {
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main_3">
+            <ul id="tree">
+                <li><div class="open">Этот компьютер</div>
+                    <ul>
+                        <li><div class="open">Видео</div>
+                            <Ul>
+                                <li><div>Запись</div></li>
+                            </Ul>
+                        </li>
+                        <li><div class="open">Документы</div>
+                            <ul>
+                                <li><div>My Games</div></li>
+                                <li><div>SavedGames</div></li>
+                            </ul>
+                        </li>
+                        <li><div>Загрузки</div></li>
+                        <li><div class="open">Изображения</div>
+                            <ul>
+                                <li><div>Альбом камеры</div></li>
+                                <li><div>Снимки экрана</div></li>
+                                <li><div>Сохраненные фото</div></li>
+                            </ul>
+                        </li>
+                        <li><div>Музыка</div></li>
+                        <li><div>Рабочий стол</div></li>
+                        <li><div class="open">Windows (C:)</div>
+                            <ul>
+                                <li><div>Program Files</div></li>
+                                <li><div class="open">Program Files (x86)</div>
+                                    <ul>
+                                        <li><div>Common Files</div></li>
+                                        <li><div>EasyAntiCheat</div></li>
+                                        <li><div>Google</div></li>
+                                        <li><div>Microsoft</div></li>
+                                    </ul>
+                                </li>
+                                <li><div>Windows</div></li>
+                                <li><div>Пользователи</div></li>
+                            </ul>
+                        </li>
+                        <li><div class="open">Data (D:)</div>
+                            <ul>
+                                <li><div>Apps</div></li>
+                                <li><div>Games</div></li>
+                                <li><div>python</div></li>
+                                <li><div>web-prog</div></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <script>
+                "use strict";
+                for (let li of tree.querySelectorAll('div')) {
+                    li.classList.add('all');
+                }
+                document.addEventListener('click', click);
+                function click(e) {
+                    if (e.target.classList[0] == 'open' || e.target.classList[0] == 'close' || e.target.classList[1] == 'open' || e.target.classList[1] == 'close') {
+                        let childrenContainer = e.target.parentNode.querySelector('ul');
+                        childrenContainer.hidden = !childrenContainer.hidden;
+                        if (childrenContainer.hidden) {
+                            e.target.classList.add('close');
+                            e.target.classList.remove('open');
+                        }
+                        else {
+                            e.target.classList.add('open');
+                            e.target.classList.remove('close');
+                        }
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>
